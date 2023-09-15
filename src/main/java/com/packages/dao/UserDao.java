@@ -8,6 +8,7 @@ import java.sql.*;
 import com.packages.models.User;
 
 public class UserDao {
+	
 	private Connection con;
 
 	private String query;
