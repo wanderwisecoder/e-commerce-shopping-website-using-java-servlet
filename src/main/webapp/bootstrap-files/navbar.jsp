@@ -11,9 +11,6 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="index.jsp">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="cart.jsp">Cart</a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Drop-down List
@@ -28,6 +25,9 @@
         <% if( auth != null) 
         	{
         	%>
+        <li class="nav-item">
+          <a class="nav-link" href="cart.jsp">Cart</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link " aria-disabled="true" href="orders.jsp">Orders</a>
         </li>

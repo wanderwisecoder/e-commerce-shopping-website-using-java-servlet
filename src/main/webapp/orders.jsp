@@ -1,5 +1,15 @@
  <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ page import="com.packages.models.*" %>
+  <% 
+    User auth = (User) request.getSession().getAttribute("auth"); 
+    if(auth!= null)
+    {
+    request.setAttribute("auth",auth);
+    
+    }
+   %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +22,7 @@
 
 
  <%@include file="bootstrap-files/navbar.jsp" %>
-
+<h5>Orders</h5>
 
 <ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
   <li class="nav-item" role="presentation">

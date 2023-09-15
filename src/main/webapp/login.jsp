@@ -6,6 +6,7 @@
     if(auth!= null)
     {
     request.setAttribute("auth",auth);
+    response.sendRedirect("index.jsp");
     }
    %>
 <!DOCTYPE html>
