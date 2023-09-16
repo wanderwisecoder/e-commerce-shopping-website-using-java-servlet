@@ -16,6 +16,18 @@
 <meta charset="UTF-8">
 <title>Cart Page</title>
 
+
+<style type="text/css">
+
+.table tbody td{
+vertical-align: middle;
+}
+.btn-incre, .btn-decre{
+box-shadow: none;
+font-size: 25px;
+}
+</style>
+
 <%@include file="bootstrap-files/head.jsp" %>
 </head>
 <body>
@@ -23,18 +35,47 @@
 
  <%@include file="bootstrap-files/navbar.jsp" %>
  <h5>Cart</h5>
+<div class="container my-3">
+		<div class="d-flex py-3"><h3>Total Price: $ ${(total>0)?dcf.format(total):0} </h3> <a class="mx-3 btn btn-primary" href="cart-check-out">Check Out</a></div>
+		<table class="table table-light">
+			<thead>
+				<tr>
+					<th scope="col">Name</th>
+					<th scope="col">Category</th>
+					<th scope="col">Price</th>
+					<th scope="col">Buy Now</th>
+					<th scope="col">Cancel</th>
+				</tr>
+			</thead>
+			<tbody>
+				<%
+				if (cart_list != null) {
+					for (Cart c : cartProduct) {
+				%>
+				<tr>
+					<td><%=c.getName()%></td>
+					<td><%=c.getCategory()%></td>
+					<td><%= dcf.format(c.getPrice())%></td>
+					<td>
+						<form action="order-now" method="post" class="form-inline">
+						<input type="hidden" name="id" value="<%= c.getId()%>" class="form-input">
+							<div class="form-group d-flex justify-content-between">
+								<a class="btn bnt-sm btn-incre" href="quantity-inc-dec?action=inc&id=<%=c.getId()%>"><i class="fas fa-plus-square"></i></a> 
+								<input type="text" name="quantity" class="form-control"  value="<%=c.getQuantity()%>" readonly> 
+								<a class="btn btn-sm btn-decre" href="quantity-inc-dec?action=dec&id=<%=c.getId()%>"><i class="fas fa-minus-square"></i></a>
+							</div>
+							<button type="submit" class="btn btn-primary btn-sm">Buy</button>
+						</form>
+					</td>
+					<td><a href="remove-from-cart?id=<%=c.getId() %>" class="btn btn-sm btn-danger">Remove</a></td>
+				</tr>
 
-<ul class="nav nav-pills nav-fill gap-2 p-1 small bg-primary rounded-5 shadow-sm" id="pillNav2" role="tablist" style="--bs-nav-link-color: var(--bs-white); --bs-nav-pills-link-active-color: var(--bs-primary); --bs-nav-pills-link-active-bg: var(--bs-white);">
-  <li class="nav-item" role="presentation">
-    <button class="nav-link active rounded-5" id="home-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="true">Home</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link rounded-5" id="profile-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">Profile</button>
-  </li>
-  <li class="nav-item" role="presentation">
-    <button class="nav-link rounded-5" id="contact-tab2" data-bs-toggle="tab" type="button" role="tab" aria-selected="false">Contact</button>
-  </li>
-</ul>
+				<%
+				}}%>
+			</tbody>
+		</table>
+	</div>
+
 
 
 
