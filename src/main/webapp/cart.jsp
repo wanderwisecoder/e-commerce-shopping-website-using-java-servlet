@@ -1,22 +1,37 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-     <%@ page import="com.packages.models.*" %>
-  <% 
-    User auth = (User) request.getSession().getAttribute("auth"); 
-    if(auth!= null)
-    {
-    request.setAttribute("auth",auth);
+ 	<%@ page language="java" contentType="text/html; charset=UTF-8"
+   		 pageEncoding="UTF-8"%>
+    <%@ page import="com.packages.models.*" %>
     
-    }
-   %>
-
+    <%@ page import="com.packages.connections.*" %>
+    
+    <%@ page import="com.packages.dao.*" %>
+    
+    <%@page import="java.text.DecimalFormat"%>
+    
+    <%@ page import="java.util.*" %>
+   
+<%
+DecimalFormat dcf = new DecimalFormat("#.##");
+request.setAttribute("dcf", dcf);
+User auth = (User) request.getSession().getAttribute("auth");
+if (auth != null) {
+    request.setAttribute("person", auth);
+}
+ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
+List<Cart> cartProduct = null;
+if (cart_list != null) {
+	ProductDao pDao = new ProductDao(DbCon.getConnection());
+	cartProduct = pDao.getCartProducts(cart_list);
+	double total = pDao.getTotalCartPrice(cart_list);
+	request.setAttribute("total", total);
+	request.setAttribute("cart_list", cart_list);
+}
+%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Cart Page</title>
-
-
+<%@include file="/bootstrap-files/head.jsp"%>
+<title>E-Commerce Cart</title>
 <style type="text/css">
 
 .table tbody td{
@@ -27,15 +42,11 @@ box-shadow: none;
 font-size: 25px;
 }
 </style>
-
-<%@include file="bootstrap-files/head.jsp" %>
 </head>
 <body>
+	<%@include file="/bootstrap-files/navbar.jsp"%>
 
-
- <%@include file="bootstrap-files/navbar.jsp" %>
- <h5>Cart</h5>
-<div class="container my-3">
+	<div class="container my-3">
 		<div class="d-flex py-3"><h3>Total Price: $ ${(total>0)?dcf.format(total):0} </h3> <a class="mx-3 btn btn-primary" href="cart-check-out">Check Out</a></div>
 		<table class="table table-light">
 			<thead>
@@ -76,11 +87,6 @@ font-size: 25px;
 		</table>
 	</div>
 
-
-
-
-
-<%@include file="bootstrap-files/js-cdn-link.jsp" %>
+	<%@include file="/bootstrap-files/js-cdn-link.jsp"%>
 </body>
-
 </html>
