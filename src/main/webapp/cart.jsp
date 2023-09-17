@@ -34,6 +34,9 @@ if (cart_list != null) {
 <title>E-Commerce Cart</title>
 <style type="text/css">
 
+/* .badge{
+color:#f00;
+} */
 .table tbody td{
 vertical-align: middle;
 }
@@ -47,7 +50,7 @@ font-size: 25px;
 	<%@include file="/bootstrap-files/navbar.jsp"%>
 
 	<div class="container my-3">
-		<div class="d-flex py-3"><h3>Total Price: $ ${(total>0)?dcf.format(total):0} </h3> <a class="mx-3 btn btn-primary" href="cart-check-out">Check Out</a></div>
+		<div class="d-flex py-3"><h3>Total Price: Rs. ${(total>0)?dcf.format(total):0} </h3> <a class="mx-3 btn btn-primary" href="cart-check-out">Check Out</a></div>
 		<table class="table table-light">
 			<thead>
 				<tr>
