@@ -52,4 +52,11 @@ public class Order extends Product{
 	public void setDate(String date) {
 		this.date = date;
 	}
+
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", uid=" + uid + ", qunatity=" + qunatity + ", date=" + date + "]";
+	}
+	
+	
 }

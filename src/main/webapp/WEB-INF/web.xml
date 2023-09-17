@@ -58,4 +58,14 @@
     <servlet-name>RemoveFromCartServlet</servlet-name>
     <url-pattern>/remove-from-cart</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OrderNowServlet</display-name>
+    <servlet-name>OrderNowServlet</servlet-name>
+    <servlet-class>com.packages.servlet.OrderNowServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OrderNowServlet</servlet-name>
+    <url-pattern>/order-now</url-pattern>
+  </servlet-mapping>
 </web-app>
