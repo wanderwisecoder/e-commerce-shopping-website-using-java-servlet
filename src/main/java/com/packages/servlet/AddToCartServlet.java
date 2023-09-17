@@ -45,6 +45,7 @@ public class AddToCartServlet extends HttpServlet {
 			if (cart_list == null) 
 			{
 				cartList.add(cm);
+				
 				session.setAttribute("cart-list", cartList);
 				response.sendRedirect("index.jsp");
 			}
