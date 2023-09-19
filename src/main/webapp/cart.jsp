@@ -31,7 +31,7 @@ if (cart_list != null) {
 <html>
 <head>
 <%@include file="/bootstrap-files/head.jsp"%>
-<title>E-Commerce Cart</title>
+<title>Cart Page</title>
 <style type="text/css">
 
 /* .badge{

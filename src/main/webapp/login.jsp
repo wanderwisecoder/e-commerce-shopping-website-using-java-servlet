@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Shopping Cart Login Page</title>
+<title>Login Page</title>
 
 <%@include file="bootstrap-files/head.jsp" %>
 </head>
