@@ -21,7 +21,8 @@ public class Product {
 		this.price = price;
 		this.image = image;
 	}
-
+	
+	
 
 	public int getId() {
 		return id;

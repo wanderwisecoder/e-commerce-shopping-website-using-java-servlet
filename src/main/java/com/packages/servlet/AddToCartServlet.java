@@ -60,7 +60,7 @@ public class AddToCartServlet extends HttpServlet {
 					{
 						exist = true;
 						out.println(
-								"<h3 style='color:crimson; text-align: center'>Item Already in Cart. GO to <a href='cart.jsp'>Cart Page.  </a> GO to <a href='index.jsp'> Index Page</a></h3>");
+								"<h3 style='color:crimson; text-align: center'>Item Already in Cart. GO to <a href='cart.jsp'>Cart Page</a>. GO to <a href='index.jsp'> Index Page</a>.</h3>");
 					}
 				}
 

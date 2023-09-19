@@ -68,4 +68,24 @@
     <servlet-name>OrderNowServlet</servlet-name>
     <url-pattern>/order-now</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CheckOutServlet</display-name>
+    <servlet-name>CheckOutServlet</servlet-name>
+    <servlet-class>com.packages.servlet.CheckOutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CheckOutServlet</servlet-name>
+    <url-pattern>/cart-check-out</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CancleOrderServlet</display-name>
+    <servlet-name>CancleOrderServlet</servlet-name>
+    <servlet-class>com.packages.servlet.CancleOrderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CancleOrderServlet</servlet-name>
+    <url-pattern>/cancle-order</url-pattern>
+  </servlet-mapping>
 </web-app>
